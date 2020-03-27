@@ -2,11 +2,39 @@ const express  = require('express');
 const app = express();
 const PORT = 3333;
 
-app.get('/', (request,response) => {
+/* 
+* Estudos Gerais
+* Metodo HTTP:
+* GET: Buscar/listar uma informação do back-end
+* POST: Criar uma informação no back-end
+* PUT : Alterar uma informação no back-end
+* DELETE: Deletar uma informação no back-end
+*/
+
+/*
+ * Tipos de Parametros:
+  Query: Parametros nomeados enviados na rota apos "?"
+  Servem para filtros, paginações
+  Routes Parms: São parametros utilizados para identificar recursos(rotas)
+  Request Body:  Corpo da requisição, utilizado para criar ou alterar recursos
+  Exemplo : ?user=jamal&idade=25
+  */
+
+app.use(express.json());
+
+app.post('/users', (request,response) => {
+    const body = request.body;
+    console.log(body);
    response.json({
       evento: "Evento Oministack",
       aluno: "Jamaluco"
    });
+});
+
+app.get('/users/:id', (request ,response) => {
+   const params = request.params; 
+   console.log(params);
+   response.send('Foi doido');
 });
 
 app.listen(PORT, () => {
