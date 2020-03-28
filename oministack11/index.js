@@ -19,7 +19,11 @@ const PORT = 3333;
   Request Body:  Corpo da requisição, utilizado para criar ou alterar recursos
   Exemplo : ?user=jamal&idade=25
   */
-
+/*
+  Driver para o Banco SQLite - Select *
+  Query Builder: table('users').select('*').where();
+  KNEXJS - Ferramenta
+*/
 app.use(express.json());
 
 app.post('/users', (request,response) => {
