@@ -1,6 +1,8 @@
 const express  = require('express');
 const app = express();
 const PORT = 3333;
+const route  =  require('./routes');
+
 
 /* 
 * Estudos Gerais
@@ -26,20 +28,8 @@ const PORT = 3333;
 */
 app.use(express.json());
 
-app.post('/users', (request,response) => {
-    const body = request.body;
-    console.log(body);
-   response.json({
-      evento: "Evento Oministack",
-      aluno: "Jamaluco"
-   });
-});
-
-app.get('/users/:id', (request ,response) => {
-   const params = request.params; 
-   console.log(params);
-   response.send('Foi doido');
-});
+// Rotas
+app.use(route);
 
 app.listen(PORT, () => {
      console.log("Servidor Rodando na porta: " + PORT);
