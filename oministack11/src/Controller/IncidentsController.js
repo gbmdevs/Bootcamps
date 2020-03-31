@@ -14,5 +14,10 @@ module.exports = {
         })
 
         return response.json(result[0]);
+    },
+    async index(request, response){
+          const resultIndex = await connection('incidents').select('*'); 
+          response.json(resultIndex);
     }
+
 }

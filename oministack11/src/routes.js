@@ -12,6 +12,7 @@ router.get('/ongs', OngsController.index);
 router.post('/ongs', OngsController.create);
 // HTTP: Incidents
 router.post('/incidents', IncidentsController.create);
+router.get('/incidents', IncidentsController.index);
 
 // Area de Teste - Para Imsomnia
 router.post('/users', (request,response) => {
