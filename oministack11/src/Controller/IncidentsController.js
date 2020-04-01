@@ -16,8 +16,19 @@ module.exports = {
         return response.json(result[0]);
     },
     async index(request, response){
-          const resultIndex = await connection('incidents').select('*'); 
-          response.json(resultIndex);
+        const { page = 1 } = request.query; 
+
+        const resultIndex = await connection('incidents')
+        .limit(5)
+        .offset((page - 1 )* 5)
+        .select('*'); 
+         
+        const [count] = await connection('incidents').count();
+        console.log(count);
+        
+        response.header('X-Total-Count', count['count(*)']);
+
+        return response.json(resultIndex);
     },
     async delete(request, response){
         const { id } = request.params;

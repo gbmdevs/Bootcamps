@@ -1,7 +1,8 @@
 const express  = require('express');
-const app = express();
-const PORT = 3333;
-const route  =  require('./routes');
+const app      = express();
+const cors     = require('cors');
+const PORT     = 3333;
+const route    =  require('./routes');
 
 /* 
 * Estudos Gerais
@@ -25,6 +26,7 @@ const route  =  require('./routes');
   Query Builder: table('users').select('*').where();
   KNEXJS - Ferramenta
 */
+//app.use(cors);
 app.use(express.json());
 
 // Rotas
