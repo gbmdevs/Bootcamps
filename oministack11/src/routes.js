@@ -1,11 +1,14 @@
 const express  = require('express');
 const router  = express.Router();
+
 // Criação de Id Automatico
 const connection = require('./database/connections');
 
 // Area das Controllers 
 const OngsController      = require('./Controller/OngsController');
 const IncidentsController = require('./Controller/IncidentsController'); 
+const ProfileController   = require('./Controller/ProfileController');
+const SessionController   = require('./Controller/SessionController');
 
 // HTTP: ONGS - Listar, Create
 router.get('/ongs', OngsController.index); 
@@ -13,26 +16,11 @@ router.post('/ongs', OngsController.create);
 // HTTP: Incidents
 router.post('/incidents', IncidentsController.create);
 router.get('/incidents', IncidentsController.index);
-
-// Area de Teste - Para Imsomnia
-router.post('/users', (request,response) => {
-    const body = request.body;
-    console.log(body);
-   response.json({
-      evento: "Evento Oministack",
-      aluno: "Jamaluco"
-   });
-});
-
-router.get('/users/:id', (request ,response) => {
-   const params = request.params; 
-   console.log(params);
-   response.send('Foi doido');
-});
-
-
-router.get('/users', (request , response) => {
-    response.send('Hello Users');
-});
+router.delete('/incidents/:id', IncidentsController.delete);
+// HTTP: Profile
+router.get('/profile', ProfileController.index);
+// HTTP: Session
+router.post('/session', SessionController.create);
+  
 
 module.exports = router;
