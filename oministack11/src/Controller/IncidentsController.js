@@ -16,12 +16,12 @@ module.exports = {
         return response.json(result[0]);
     },
     async index(request, response){
-        const { page = 1 } = request.query; 
+        const { page = 1 } = request.query;  
 
         const resultIndex = await connection('incidents')
         .limit(5)
         .offset((page - 1 )* 5)
-        .select('*'); 
+        .select('*');
          
         const [count] = await connection('incidents').count();
         console.log(count);
