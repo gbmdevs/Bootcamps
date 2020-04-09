@@ -26,11 +26,15 @@ const route    =  require('./routes');
   Query Builder: table('users').select('*').where();
   KNEXJS - Ferramenta
 */
-// Permitir o Cross Origin
-app.use(cors({
+
+/* Permitir o Cross Origin so para localhost
+/*app.use(cors({
   origin: "http://localhost:3000"
 }));
-app.use(express.json());
+*/
+
+app.use(cors());
+app.use(express.json()); 
 
 // Rotas
 app.use(route);
