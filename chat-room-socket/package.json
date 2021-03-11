@@ -1,0 +1,21 @@
+{
+  "name": "chat-room-socket",
+  "version": "1.0.0",
+  "description": "Estudos de Socket com exemplo de chat online",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo test",
+    "start": "nodemon index.js"
+  },
+  "keywords": [
+    "Chat Room"
+  ],
+  "author": "Guilherme Braga (Jamal)",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.1",
+    "jquery": "^3.6.0",
+    "nodemon": "^2.0.7",
+    "socket.io": "^4.0.0"
+  }
+}
